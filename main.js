@@ -1,4 +1,6 @@
-
+// get the header element and put text inside
+let headerText = document.getElementById("myHeader");
+headerText.innerText="Employee Lookup";
 
 // just my array of JSON
 const employees = [
@@ -24,8 +26,10 @@ const employees = [
   { firstName: "Sofia", lastName: "Garcia", email: "sofia.garcia@example.com", employeeID: 20 }
 ];
 
-// get the container element
-const container = document.getElementById("container");
+
+
+/*
+commenting out old function to use employeeFilter instead
 
 // for loop to populate the container element
 for (let i = 0; i <employees.length; i++) {
@@ -40,12 +44,35 @@ for (let i = 0; i <employees.length; i++) {
 container.appendChild(div);
 
 }
-// get the header element and put text inside
-let headerText = document.getElementById("myHeader");
-headerText.innerText="Java Script Yo";
+*/
 
 // get the submit form element and store it in the form variable
 var form = document.getElementById("submitForm");
+// function to filter the array for the user entered number and display that employees information
+function employeeFilter(idNumber) {
+
+  console.log(idNumber);
+  console.log(typeof idNumber, " is the type of idNumber");
+  // need to research the usage of double equals vs triple to see if this is an appropriate use of ==
+  let chosenEmployee = employees.find(employee => employee.employeeID == idNumber);
+  if (chosenEmployee) {
+    // Construct the HTML content with the employee information
+    let employeeInfoHTML = `
+      <h2>${chosenEmployee.firstName} ${chosenEmployee.lastName}</h2>
+      <p>Email: ${chosenEmployee.email}</p>
+      <p>Employee ID: ${chosenEmployee.employeeID}</p>
+    `;
+    
+    // Update the content of the "employeeInfo" element
+    document.getElementById("employeeInfo").innerHTML = employeeInfoHTML;
+  } else {
+    // Clear the content if no matching employee is found
+    document.getElementById("employeeInfo").innerHTML = "Employee ID not found";
+  }
+  
+  
+    
+  };
 
 // event listener for click and then perform actions on the number
   form.addEventListener('submit', function(event) {
@@ -59,6 +86,8 @@ var form = document.getElementById("submitForm");
 
     // Perform desired actions with the number
     console.log('Number entered:', number);
+    // call the employee filter function and pass number to it
+    employeeFilter(number);
 
     // Clear the input field
     numberInput.value = '';

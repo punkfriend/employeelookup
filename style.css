@@ -59,6 +59,7 @@ section {
 h2 {
 	font-size: 24px;
 	margin-top: 0;
+	margin-bottom: 10px;
 }
 
 ul {
@@ -89,11 +90,6 @@ div {
 	height: 200px;
 	vertical-align: top;
 	text-align: center;
-  }
-  
-  h2 {
-	font-size: 18px;
-	margin-bottom: 10px;
   }
   
   p {
