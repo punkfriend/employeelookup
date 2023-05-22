@@ -49,6 +49,7 @@ container.appendChild(div);
 // get the submit form element and store it in the form variable
 var form = document.getElementById("submitForm");
 // function to filter the array for the user entered number and display that employees information
+/*
 function employeeFilter(idNumber) {
 
   console.log(idNumber);
@@ -66,9 +67,28 @@ function employeeFilter(idNumber) {
     // Update the content of the "employeeInfo" element
     document.getElementById("employeeInfo").innerHTML = employeeInfoHTML;
   } else {
-    // Clear the content if no matching employee is found
+    // display that no matching employee is found
     document.getElementById("employeeInfo").innerHTML = "Employee ID not found";
   }
+  */
+  function employeeFilterRewrite(idNumber) {
+
+    // need to research the usage of double equals vs triple to see if this is an appropriate use of ==
+    let chosenEmployee = employees.find(employee => Number(employee.employeeID) === Number(idNumber));
+    if (chosenEmployee) {
+      // Construct the HTML content with the employee information
+      let employeeInfoHTML = `
+        <h2>${chosenEmployee.firstName} ${chosenEmployee.lastName}</h2>
+        <p>Email: ${chosenEmployee.email}</p>
+        <p>Employee ID: ${chosenEmployee.employeeID}</p>
+      `;
+      
+      // Update the content of the "employeeInfo" element
+      document.getElementById("employeeInfo").innerHTML = employeeInfoHTML;
+    } else {
+      // display that no matching employee is found
+      document.getElementById("employeeInfo").innerHTML = "Employee ID not found";
+    }
   
   
     
@@ -86,8 +106,9 @@ function employeeFilter(idNumber) {
 
     // Perform desired actions with the number
     console.log('Number entered:', number);
-    // call the employee filter function and pass number to it
-    employeeFilter(number);
+    // call the employeeFilter function OR employeeFilterRewrite and pass number to it comment out one you're not using
+    //employeeFilter(number);
+    employeeFilterRewrite(number);
 
     // Clear the input field
     numberInput.value = '';
