@@ -2,10 +2,11 @@
 
 body {
 	font-family: Helvetica, Arial, sans-serif;
+	background-color: #daecf2;
 }
 
 header {
-	background-color: #f7f7f7;
+	background-color: #daecf2;
 	padding: 20px;
 	font-size: large;
 	font-weight: bold;
@@ -54,6 +55,7 @@ main {
 section {
 	margin-bottom: 20px;
 	text-align: center;
+	font-weight: bold;
 }
 
 h2 {
@@ -82,11 +84,11 @@ div {
 	border: 1px solid #ccc;
 	padding: 15px;
 	margin-bottom: 10px;
-	border-radius: 5px;
+	border-radius: 1px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	background-color: #f9f9f9;
+	background-color: #adc4c6;
 	display: inline-block;
-	width: 200px;
+	width: 1400px;
 	height: 200px;
 	vertical-align: top;
 	text-align: center;
