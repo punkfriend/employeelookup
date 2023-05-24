@@ -46,8 +46,9 @@ container.appendChild(div);
 }
 */
 
-// get the submit form element and store it in the form variable
-var form = document.getElementById("submitForm");
+// get the submit form elements and store them in the form variables
+let form = document.getElementById("submitForm");
+let form2 = document.getElementById("submitForm2");
 // function to filter the array for the user entered number and display that employees information
 /*
 function employeeFilter(idNumber) {
@@ -93,6 +94,34 @@ function employeeFilter(idNumber) {
   
     
   };
+// function to filter the array for first names
+  function firstNameFilter(fName) {
+    console.log(fName);
+
+   // filter any array items with a matching name into new array nameArray
+    let nameArray = employees.filter(employee => employee.firstName == fName);
+    console.log("nameArray is ", nameArray)
+    if (nameArray.length > 0) {
+      // Construct the HTML content with the employee information
+      let employeeNameHTML = '';
+      nameArray.forEach(employee => {
+        employeeNameHTML += `
+        <h2>${employee.firstName} ${employee.lastName}</h2>
+        <p>Email: ${employee.email}</p>
+        <p>Employee ID: ${employee.employeeID}</p>
+      `;
+      });
+      
+      // Update the content of the "employeeInfo" element
+      document.getElementById("employeeName").innerHTML = employeeNameHTML;
+    } else {
+      // display that no matching employee is found
+      document.getElementById("employeeName").innerHTML = "Employee First Name not found";
+    }
+  };
+  
+
+
 
 // event listener for click and then perform actions on the number
   form.addEventListener('submit', function(event) {
@@ -109,6 +138,24 @@ function employeeFilter(idNumber) {
     // call the employeeFilter function OR employeeFilterRewrite and pass number to it comment out one you're not using
     //employeeFilter(number);
     employeeFilterRewrite(number);
+
+    // Clear the input field
+    numberInput.value = '';
+  });
+  // second event listener for click and then perform actions on the first name entered
+  form2.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Access the input field by its id
+    var nameInput = document.getElementById('nameInput');
+
+    // Get the value entered by the user
+    var effName = nameInput.value;
+
+    // Perform desired actions with the number
+    console.log('Name entered:', effName);
+    // call the firstNameFilter function and pass name to it
+    firstNameFilter(effName);
 
     // Clear the input field
     numberInput.value = '';
