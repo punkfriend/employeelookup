@@ -2,7 +2,7 @@
 let headerText = document.getElementById("myHeader");
 headerText.innerText="Employee Lookup";
 
-// just my array of JSON
+// just my array of employees
 const employees = [
   { firstName: "John", lastName: "Doe", email: "john.doe@example.com", employeeID: 1 },
   { firstName: "Jane", lastName: "Smith", email: "jane.smith@example.com", employeeID: 2 },
@@ -50,31 +50,9 @@ container.appendChild(div);
 let form = document.getElementById("submitForm");
 let form2 = document.getElementById("submitForm2");
 // function to filter the array for the user entered number and display that employees information
-/*
-function employeeFilter(idNumber) {
 
-  console.log(idNumber);
-  console.log(typeof idNumber, " is the type of idNumber");
-  // need to research the usage of double equals vs triple to see if this is an appropriate use of ==
-  let chosenEmployee = employees.find(employee => employee.employeeID == idNumber);
-  if (chosenEmployee) {
-    // Construct the HTML content with the employee information
-    let employeeInfoHTML = `
-      <h2>${chosenEmployee.firstName} ${chosenEmployee.lastName}</h2>
-      <p>Email: ${chosenEmployee.email}</p>
-      <p>Employee ID: ${chosenEmployee.employeeID}</p>
-    `;
-    
-    // Update the content of the "employeeInfo" element
-    document.getElementById("employeeInfo").innerHTML = employeeInfoHTML;
-  } else {
-    // display that no matching employee is found
-    document.getElementById("employeeInfo").innerHTML = "Employee ID not found";
-  }
-  */
   function employeeFilterRewrite(idNumber) {
 
-    // need to research the usage of double equals vs triple to see if this is an appropriate use of ==
     let chosenEmployee = employees.find(employee => Number(employee.employeeID) === Number(idNumber));
     if (chosenEmployee) {
       // Construct the HTML content with the employee information
@@ -96,11 +74,9 @@ function employeeFilter(idNumber) {
   };
 // function to filter the array for first names
   function firstNameFilter(fName) {
-    console.log(fName);
 
-   // filter any array items with a matching name into new array nameArray
+   // filter any array items with a matching firstName into new array nameArray
     let nameArray = employees.filter(employee => employee.firstName == fName);
-    console.log("nameArray is ", nameArray)
     if (nameArray.length > 0) {
       // Construct the HTML content with the employee information
       let employeeNameHTML = '';
@@ -112,7 +88,7 @@ function employeeFilter(idNumber) {
       `;
       });
       
-      // Update the content of the "employeeInfo" element
+      // Update the content of the "employeeName" element
       document.getElementById("employeeName").innerHTML = employeeNameHTML;
     } else {
       // display that no matching employee is found
@@ -132,11 +108,7 @@ function employeeFilter(idNumber) {
 
     // Get the value entered by the user
     var number = numberInput.value;
-
-    // Perform desired actions with the number
-    console.log('Number entered:', number);
-    // call the employeeFilter function OR employeeFilterRewrite and pass number to it comment out one you're not using
-    //employeeFilter(number);
+    // call the employeeFilterRewrite function and pass number to it
     employeeFilterRewrite(number);
 
     // Clear the input field
@@ -151,9 +123,6 @@ function employeeFilter(idNumber) {
 
     // Get the value entered by the user
     var effName = nameInput.value;
-
-    // Perform desired actions with the number
-    console.log('Name entered:', effName);
     // call the firstNameFilter function and pass name to it
     firstNameFilter(effName);
 

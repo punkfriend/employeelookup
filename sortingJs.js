@@ -1,4 +1,4 @@
-// leaving the original employees array commented out in case I want it later?
+// leaving the original employees array commented out in case I want it later in its original order
 // const employees = [
 //     { firstName: "Alice", lastName: "Johnson", email: "alice.johnson@example.com", employeeID: 1 },
 //     { firstName: "Bob", lastName: "Smith", email: "bob.smith@example.com", employeeID: 2 },
@@ -44,37 +44,8 @@
     { firstName: "Sophie", lastName: "Garcia", email: "sophie.garcia@example.com", employeeID: 2 },
     { firstName: "Thomas", lastName: "Davis", email: "thomas.davis@example.com", employeeID: 13 }
   ];
-  
-  
 
-
-   
-    
-    console.clear();
-    //const funk = x => x * x + 25;
-    //const add = (a,b) => a * b;
-    //console.log(funk(5));
-    //console.log(add(10,4));
-    // hard coded sorter function for employees array
-    employees.sort((a,b) => {
-        let fa = a.firstName.toLowerCase();
-        let fb = b.firstName.toLowerCase();
-        if (fa < fb) {
-            return 1;
-        }
-        if (fa > fb) {
-            return -1;
-        }
-        return 0;
-    
-    });
-    // print each employee
-    // employees.forEach((e) => {
-    //     console.log(`
-    //     ${e.firstName} ${e.lastName} Employee ID: ${e.employeeID}
-    //     `);
-    // });
-    //sorter function for any array that takes an array input and a property input
+    //sorter function for any array that takes an array input and a property - string values edition
     function stringSorter(arr, prop) {
         const sortedArr = arr.sort((a,b) => {
             let o1 = a[prop].toLowerCase();
@@ -85,15 +56,11 @@
             if (o1 > o2) {
                 return 1;
             }
-            return 0;
-            
-            
+            return 0;    
         });
         return sortedArr;
-        
-        
-
     };
+// sorter function for any array to sort on number values
     function numberSorter(arr, prop) {
         const sortedArr = arr.sort((a,b) => {
             let o1 = a[prop];
@@ -105,17 +72,11 @@
                 return 1;
             }
             return 0;
-            
-            
-        });
+            });
         return sortedArr;
-        
-        
+      };
 
-    };
-    // variable to store array sorted by firstName property
-    // const sortedEmp = stringSorter(employees, "firstName");
-    // function that will call stringSorter to sort array by firstName property
+    // function that will call stringSorter or numberSorter or display all or clear the results
     function buttonClicked(buttonIndex) {
         switch (buttonIndex) {
           case 1:
@@ -139,7 +100,7 @@
               break;
         }
       };
-
+// function that will display the results of any sorted array
       function displayResults(sortedArr) {
           // get the resultsGrid div so the employees can be inserted there
         const resultsGrid = document.getElementById("resultsGrid");
@@ -151,6 +112,7 @@
           resultsGrid.appendChild(employeeDiv);
         });
       };
+// function that will display each item from an array without any sorting
       function displayAllResults(unsortedArr) {
         // get the resultsGrid div so the employees can be inserted there
       const resultsGrid = document.getElementById("resultsGrid");
@@ -162,7 +124,7 @@
         resultsGrid.appendChild(employeeDiv);
       });
     };
-      
+// function that will clear the resultsGrid div
       function clearDiv() {
         const resultsGrid = document.getElementById("resultsGrid");
         resultsGrid.innerHTML = "";
