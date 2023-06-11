@@ -3,11 +3,18 @@ body {
     background-color: #a29bc9; /* Greyish purple background color */
     text-align: center;
 }
-
+button {
+    font-family: 'Libre Baskerville', serif;
+}
 #resultsGrid {
     margin-top: 20px;
     padding: 10px;
     background-color: #38438b;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#sortingForm {
+    font-family: 'Libre Baskerville', serif;
+
+
 }
