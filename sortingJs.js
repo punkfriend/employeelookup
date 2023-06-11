@@ -131,6 +131,9 @@
             const sortedByIdNumber = numberSorter(employees, "employeeID");
             displayResults(sortedByIdNumber);
             break;
+            case 4:
+              displayAllResults(employees);
+              break;
           case 5:
               clearDiv();
               break;
@@ -148,6 +151,17 @@
           resultsGrid.appendChild(employeeDiv);
         });
       };
+      function displayAllResults(unsortedArr) {
+        // get the resultsGrid div so the employees can be inserted there
+      const resultsGrid = document.getElementById("resultsGrid");
+      resultsGrid.innerHTML = ""; // Clear previous results
+    
+      unsortedArr.forEach((employee) => {
+        const employeeDiv = document.createElement("div");
+        employeeDiv.textContent = `${employee.firstName} ${employee.lastName} email: ${employee.email} employee ID: ${employee.employeeID}`;
+        resultsGrid.appendChild(employeeDiv);
+      });
+    };
       
       function clearDiv() {
         const resultsGrid = document.getElementById("resultsGrid");
