@@ -79,6 +79,9 @@ const employees = [
             displayResults(sortedByFirstName);
             break;
           // Add cases for other button indices (2, 3, 4) if needed
+          case 5:
+              clearDiv();
+              break;
         }
       };
 
@@ -93,6 +96,12 @@ const employees = [
           resultsGrid.appendChild(employeeDiv);
         });
       };
+      
+      function clearDiv() {
+        const resultsGrid = document.getElementById("resultsGrid");
+        resultsGrid.innerHTML = "";
+
+      }
 
 
     
