@@ -70,7 +70,7 @@ const employees = [
 
     };
     // variable to store array sorted by firstName property
-    const sortedEmp = stringSorter(employees, "firstName");
+    // const sortedEmp = stringSorter(employees, "firstName");
     // function that will call stringSorter to sort array by firstName property
     function buttonClicked(buttonIndex) {
         switch (buttonIndex) {
@@ -79,6 +79,10 @@ const employees = [
             displayResults(sortedByFirstName);
             break;
           // Add cases for other button indices (2, 3, 4) if needed
+          case 2:
+            const sortedByLastName = stringSorter(employees, "lastName");
+            displayResults(sortedByLastName);
+            break;
           case 5:
               clearDiv();
               break;
