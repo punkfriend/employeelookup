@@ -132,10 +132,21 @@
       }
 
 // this code will be replaced with a re-write of displayAllResults function but for now I learned to get a photo from /assets and display on page
-    const myDiv = document.getElementById("resultsGrid");
-    const empPhotoUrl = "<img src=" + employees[0].photo + " width='200' height='200'>";
-    console.log(empPhotoUrl);
-    myDiv.innerHTML = empPhotoUrl;
-    myDiv.innerText
+// construct an img src tag by pulling the specific employees photoUrl and storing the full string in a variable
+    // const empPhotoUrl = "<img src=" + employees[0].photo + " width='200' height='200'>";
+    // const empPhotoUrl = "<img src=" + employees[0].photo + " width='200' height='200'>";
+    // Creating a new <img> element
+    const myImage = document.createElement("img");
+    // set the src attribute of the image element
+    myImage.src = employees[0].photo;
+    // set the size of the image element
+    myImage.width = 200;
+    myImage.height = 200;
+    // Getting the target element from the DOM
+    const targetElement = document.getElementById("resultsGrid");
+    targetElement.appendChild(myImage);
+    
+
+  
     
    
