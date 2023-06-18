@@ -23,7 +23,7 @@
 //   ];
   // I shuffled the employeeID values since they were corresponding to the alphabetically sorted firstName now I can use my sort by ID function too
   const employees = [
-    { firstName: "Alice", lastName: "Johnson", email: "alice.johnson@example.com", employeeID: 8 },
+    { firstName: "Alice", lastName: "Johnson", email: "alice.johnson@example.com", employeeID: 8, photo: "/assets/two.png" },
     { firstName: "Bob", lastName: "Smith", email: "bob.smith@example.com", employeeID: 15 },
     { firstName: "Charlie", lastName: "Williams", email: "charlie.williams@example.com", employeeID: 4 },
     { firstName: "Diana", lastName: "Brown", email: "diana.brown@example.com", employeeID: 12 },
@@ -131,7 +131,11 @@
 
       }
 
-
-    
+// this code will be replaced with a re-write of displayAllResults function but for now I learned to get a photo from /assets and display on page
+    const myDiv = document.getElementById("resultsGrid");
+    const empPhotoUrl = "<img src=" + employees[0].photo + " width='200' height='200'>";
+    console.log(empPhotoUrl);
+    myDiv.innerHTML = empPhotoUrl;
+    myDiv.innerText
     
    
